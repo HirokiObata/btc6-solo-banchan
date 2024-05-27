@@ -10,7 +10,7 @@ function ScoreRegister({ course, players }) {
   const postButton = () => {
     // fetch post request
     console.log("post");
-    fetch("http://localhost:8080/scores", {
+    fetch("/scores", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

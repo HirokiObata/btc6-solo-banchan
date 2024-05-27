@@ -1,14 +1,10 @@
-import { useEffect, useState, useTransition } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { useEffect, useState } from "react";
 import "./App.css";
 import TopBtn from "./TopBtn";
 import ScoreRegister from "./ScoreRegister";
 import ScoreLog from "./ScoreLog";
 
 function App() {
-  console.log("dir", __dirname);
-  const [count, setCount] = useState(0);
   const [players, setPlayer] = useState([]);
   const [course, setCourse] = useState([]);
   const [monitorState, setMonitorState] = useState(true);
