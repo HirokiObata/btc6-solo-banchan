@@ -1,6 +1,7 @@
 const express = require("express");
 const knex = require("knex");
 const cors = require("cors");
+
 const knexConfig = require("./knexfile");
 const environment = process.env.DATABASE_URL ? "production" : "development";
 
