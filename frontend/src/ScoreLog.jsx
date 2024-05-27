@@ -14,19 +14,19 @@ function ScoreLog({ scores, setScores }) {
     <div>
       <table>
         <tr>
-          <th>人</th>
-          <th>course</th>
-          <th>IN</th>
-          <th>OUT</th>
-          <th>Total</th>
+          <th scope="col">人</th>
+          <th scope="col">course</th>
+          <th scope="col">OUT</th>
+          <th scope="col">IN</th>
+          <th scope="col">Total</th>
         </tr>
         {scores.map((ele) => {
           return (
             <tr>
-              <td>{ele.name}</td>
+              <th scope="col">{ele.name}</th>
               <td>{ele.course_name}</td>
-              <td>{ele["IN-score"]}</td>
               <td>{ele["OUT-score"]}</td>
+              <td>{ele["IN-score"]}</td>
               <td>{ele["IN-score"] + ele["OUT-score"]}</td>
             </tr>
           );
