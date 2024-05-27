@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npm i ",
-    "start": "npm run migrate && npm run seed &&node server.js",
+    "start": "npm run migrate",
     "dev": "nodemon server.js",
     "makeMigration": "npx knex migrate:make",
     "migrate": "npx knex migrate:latest",

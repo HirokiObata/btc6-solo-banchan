@@ -12,6 +12,7 @@ const db = knex(knexConfig[environment]);
 app.use(cors());
 app.use("/", express.static(__dirname + "/frontend/dist"));
 app.use(express.json());
+console.log("dir", __dirname);
 
 app.get("/score", async (req, res) => {
   const scores = await db
