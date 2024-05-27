@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "build": "npm i ",
-    "start": "node server.js && npm run migrate && npm run seed ",
+    "start": "npm run migrate && npm run seed &&node server.js",
     "dev": "nodemon server.js",
     "makeMigration": "npx knex migrate:make",
-    "migrate": "knex migrate:latest",
+    "migrate": "npx knex migrate:latest",
     "rollback": "knex migrate:rollback",
-    "seed": "knex seed:run",
+    "seed": "npx knex seed:run",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
