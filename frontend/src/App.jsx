@@ -49,7 +49,7 @@ function App() {
         {monitorState ? (
           <ScoreRegister course={course} players={players}></ScoreRegister>
         ) : (
-          <ScoreLog scores={scores}></ScoreLog>
+          <ScoreLog scores={scores} setScores={setScores}></ScoreLog>
         )}
       </div>
     </>

@@ -7,6 +7,24 @@ function ScoreRegister({ course, players }) {
   const [selectedCourse, setSelectedCourse] = useState();
   const [selectedPlayer, setSelectedPlayer] = useState();
 
+  const postButton = () => {
+    // fetch post request
+    console.log("post");
+    fetch("http://localhost:8080/scores", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        player_id: selectedPlayer,
+        "IN-score": inScore,
+        "OUT-score": outScore,
+        golf_course: selectedCourse,
+        date: new Date(),
+      }),
+    });
+  };
+
   return (
     <>
       <Form.Label>コース選択</Form.Label>
@@ -18,7 +36,7 @@ function ScoreRegister({ course, players }) {
         }}
       >
         <option>コースを選んでね</option>
-        {course.map((ele, index) => {
+        {course.map((ele) => {
           return <option value={ele.id}>{ele.course_name}</option>;
         })}
       </Form.Select>
@@ -29,14 +47,25 @@ function ScoreRegister({ course, players }) {
           setSelectedPlayer(e.target.value);
         }}
       >
-        {players.map((ele, index) => {
+        <option>人選んでね</option>
+        {players.map((ele) => {
           return <option value={ele.id}>{ele.name}</option>;
         })}
       </Form.Select>
-      <Form.Control></Form.Control>
-      <Form.Control></Form.Control>
+      <Form.Control
+        onChange={(e) => {
+          console.log(e.target.value);
+          setOutScore(e.target.value);
+        }}
+      ></Form.Control>
+      <Form.Control
+        onChange={(e) => {
+          console.log(e.target.value);
+          setInScore(e.target.value);
+        }}
+      ></Form.Control>
       <br />
-      <button>submit</button>
+      <button onClick={postButton}>submit</button>
     </>
   );
 }

@@ -1,6 +1,14 @@
 import React, { useEffect, useState } from "react";
 
-function ScoreLog({ scores }) {
+function ScoreLog({ scores, setScores }) {
+  useEffect(() => {
+    (async () => {
+      await fetch("http://localhost:8080/scores")
+        .then((res) => res.json())
+        .then((res) => setScores(res));
+    })();
+  }, []);
+
   console.log({ scores });
   return (
     <div>
