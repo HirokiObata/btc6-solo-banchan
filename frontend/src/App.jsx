@@ -7,6 +7,7 @@ import ScoreRegister from "./ScoreRegister";
 import ScoreLog from "./ScoreLog";
 
 function App() {
+  console.log("dir", __dirname);
   const [count, setCount] = useState(0);
   const [players, setPlayer] = useState([]);
   const [course, setCourse] = useState([]);

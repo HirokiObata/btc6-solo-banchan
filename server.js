@@ -18,6 +18,7 @@ app.get("/score", async (req, res) => {
   const scores = await db
     .select("IN-score", "OUT-score", "date")
     .table("scores");
+  console.log("dir", __dirname);
 
   res.status(200).send(JSON.stringify(scores));
 });
@@ -54,4 +55,6 @@ app.post("/scores", async (req, res) => {
   res.status(201).send(JSON.stringify(kakunin));
 });
 
-app.listen(PORT, () => {});
+app.listen(PORT, () => {
+  console.log("port", PORT);
+});
