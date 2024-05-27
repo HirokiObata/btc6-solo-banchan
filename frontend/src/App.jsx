@@ -14,9 +14,7 @@ function App() {
   const [scores, setScores] = useState([]);
 
   async function getname() {
-    const player = await fetch(" http://localhost:8080/player").then((res) =>
-      res.json()
-    );
+    const player = await fetch("/player").then((res) => res.json());
     setPlayer(player);
   }
   useEffect(() => {
@@ -24,16 +22,14 @@ function App() {
   }, []);
 
   async function getCourse() {
-    const course = await fetch(" http://localhost:8080/course").then((res) =>
-      res.json()
-    );
+    const course = await fetch("/course").then((res) => res.json());
     setCourse(course);
   }
   useEffect(() => {
     getname();
     getCourse();
     (async () => {
-      await fetch("http://localhost:8080/scores")
+      await fetch("/scores")
         .then((res) => res.json())
         .then((res) => setScores(res));
     })();

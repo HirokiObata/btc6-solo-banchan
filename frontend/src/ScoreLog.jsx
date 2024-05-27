@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 function ScoreLog({ scores, setScores }) {
   useEffect(() => {
     (async () => {
-      await fetch("http://localhost:8080/scores")
+      await fetch("/scores")
         .then((res) => res.json())
         .then((res) => setScores(res));
     })();
